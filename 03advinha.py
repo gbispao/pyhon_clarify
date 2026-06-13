@@ -1,71 +1,42 @@
-```python
-from random import randint
-import time
+from random import randint #Biblioteca random, buscar um aleatorio inteiro
 
 print('######### Iniciando o jogo! ###########')
 
-numero_secreto = randint(0, 100)
-chute = 0
+random = randint(0, 100)
+chute = 0 
 chances = 10
 
-# Inicia o cronômetro
-inicio = time.time()
+# < Menor
+# > Maior
+# == Igual (comparação)
+# != Diferente (comparação)
+# >= Maior ou igual 
+# <= Menor ou igual
 
-while chute != numero_secreto:
+while chute != random :
     chute = input('Chute um número entre 0 e 100: ')
-
-    if chute.isnumeric():  # Evita que o usuário digite algo diferente de um número
+    if chute.isnumeric() : #Evitar que o usuário digite algo diferente de um número
         chute = int(chute)
-        chances -= 1
-
-        if chute == numero_secreto:
-            # Finaliza o cronômetro
-            fim = time.time()
-            tempo_total = fim - inicio
-
+        chances = chances - 1
+        if chute == random :
             print('')
-            print(
-                'Parabéns, você venceu! O número era {} e você ainda tinha {} chances.'.format(
-                    numero_secreto, chances
-                )
-            )
-            print('Tempo de jogo: {:.2f} segundos'.format(tempo_total))
+            print('Parabéns, você venceu! O numero era {} e você ainda tinha {} chances.'.format(random, chances))
             print('')
             break
-
-        else:
+        else :
             print('')
-
-            if chute > numero_secreto:
+            if chute > random :
                 print('Você errou! Dica: É um número menor.')
-            else:
+            else :
                 print('Você errou! Dica: É um número maior.')
-
-            print('Você possui ainda {} chances'.format(chances))
+            print('VocÊ possui ainda {} chances'.format(chances))
             print('')
-
-        if chances == 0:
-            # Finaliza o cronômetro
-            fim = time.time()
-            tempo_total = fim - inicio
-
+        if chances == 0 :
             print('')
-            print(
-                'Suas chances acabaram, você perdeu! O número era: {}'.format(
-                    numero_secreto
-                )
-            )
-            print('Tempo de jogo: {:.2f} segundos'.format(tempo_total))
+            print('Suas chances acabaram, você perdeu! O número era: {}'.format(random))
             print('')
             break
-
-    else:
-        print('')
-        print('Digite apenas números!')
-        print('')
 
 print('######### Fim de jogo! ###########')
-```
-
     
             
